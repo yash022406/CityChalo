@@ -11,6 +11,14 @@ const Signin = () => {
   const navigate = useNavigate()
   const {signIn} = UserAuth();
   const {googleSignIn,user} = UserAuth();
+  const emailValidation = (val) => {
+    if(val.match(/[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])?/g)){
+      console.log("true");
+    }else{
+      console.log("false");
+    }
+  }
+
   const handleGoogleSignIn = async () => {
     try{
       await googleSignIn();
@@ -46,12 +54,12 @@ const Signin = () => {
       <form onSubmit={handleSubmit}>
         <div>
           <label> Email Address</label>
-          <input onChange={(e) => setEmail(e.target.value)} type="email" /> 
+          <input onChange={(e) => emailValidation(e.target.value)} type="email" required/> 
         </div>
       
         <div>
           <label>Password</label>
-          <input onChange={(e) => setPassword(e.target.value)} type="password" />
+          <input onChange={(e) => setPassword(e.target.value)} type="password" required/>
         </div>
         <button>Sign In</button>
         <div>

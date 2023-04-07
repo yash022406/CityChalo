@@ -10,6 +10,14 @@ const Signup = () => {
   const {createUser} = UserAuth()
   const navigate = useNavigate()
 
+  const emailValidation = (val) => {
+    if(val.match(/[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])?/g)){
+      console.log("true");
+    }else{
+      console.log("false");
+    }
+  }
+
  
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -32,12 +40,12 @@ const Signup = () => {
       <form onSubmit={handleSubmit}>
         <div>
           <label> Email Address</label>
-          <input onChange={(e) => setEmail(e.target.value)} type="email" />
+          <input onChange={(e) => emailValidation(e.target.value)} type="email" required/>
         </div>
       
         <div>
           <label>Password</label>
-          <input onChange={(e) => setPassword(e.target.value)} type="password" />
+          <input onChange={(e) => setPassword(e.target.value)} type="password" required/>
         </div>
         <button>Sign Up</button>
       </form>
