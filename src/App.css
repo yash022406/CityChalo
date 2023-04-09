@@ -36,3 +36,28 @@
       transform: rotate(360deg);
     }
   }
+  .bg{
+    background-image: url(./assets/loginpageImage.png);
+    height: 790px;
+    width: 100%;
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    
+  }
+
+ 
+ .cover{
+  background-color: white;
+  width: 25em;
+  height: 30em;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  opacity: 0.8;
+  border-radius: 2rem;
+
+ }
