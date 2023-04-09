@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import {Link,useNavigate} from 'react-router-dom';
 import { UserAuth } from '../context/AuthContext';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
+import './signin.css';
 const Signup = () => {
 
   const [email,setEmail] = useState('')
@@ -32,23 +33,25 @@ const Signup = () => {
   }
 
   return ( 
-    <div>
-      <div>
-        <h1>Sign Up for a free account</h1>
-        <p>Already have an account? <Link to='/'> Sign In.</Link></p>
+    <div className='body'>
+      <div className='cover'>
+        <div>
+        <h1>Sign Up </h1>
+        <p className='lol'>Already have an account? <Link to='/'> Sign In.</Link></p>
       </div>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label> Email Address</label>
-          <input onChange={(e) => emailValidation(e.target.value)} type="email" required/>
+        <div className='text'>
+          
+          <input onChange={(e) => emailValidation(e.target.value)} placeholder='Email Id' type="email" required/>
         </div>
       
-        <div>
-          <label>Password</label>
-          <input onChange={(e) => setPassword(e.target.value)} type="password" required/>
+        <div className='text'>
+          
+          <input onChange={(e) => setPassword(e.target.value)} placeholder='Password' type="password" required/>
         </div>
-        <button>Sign Up</button>
+        <button className='si'>Sign Up</button>
       </form>
+      </div>
     </div>
   )
 }

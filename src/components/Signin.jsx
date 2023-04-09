@@ -2,7 +2,9 @@ import { React, useEffect, useState } from 'react';
 import GoogleButton from 'react-google-button';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserAuth } from '../context/AuthContext';
-import '../App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import './signin.css';
 const Signin = () => {
 
   const [email, setEmail] = useState('')
@@ -46,26 +48,26 @@ const Signin = () => {
   }
 
   return (
-    <div >
-      <div className='bg'>
-        <div className='cover'>
-          <div align='center'>
-              <h1>Sign In for a free account</h1>
-            </div>
-            <form onSubmit={handleSubmit}>
-              <div className='text'> 
-                <input onChange={(e) => emailValidation(e.target.value)} placeholder='Email id' type="email" required />
-              </div>
-              <div>
-                <input onChange={(e) => setPassword(e.target.value)} placeholder='password' type="password" required />
-              </div>
-              <button>Sign In</button>
-              <p>Don't have an account? <Link to='/signup'> Sign Up.</Link></p>
-              <div align='center'>
-                <GoogleButton onClick={handleGoogleSignIn} />
-              </div>
-            </form>
+    <div className='body' >
+      <div className='cover'>
+        <div align='center'>
+          <h1>login</h1>
+        </div>
+        <form onSubmit={handleSubmit}>
+          <div className='text'>
+            
+            <input onChange={(e) => emailValidation(e.target.value)} placeholder='Email id' type="email" required />
+            
           </div>
+          <div className='text'>
+            <input onChange={(e) => setPassword(e.target.value)} placeholder='password' type="Password" required />
+          </div>
+          <button className='si'>Sign In</button>
+          <p className='lol'>Don't have an account? <Link to='/signup'> Sign Up.</Link></p>
+          <div align='center'>
+            <GoogleButton onClick={handleGoogleSignIn} />
+          </div>
+        </form>
       </div>
     </div>
   )

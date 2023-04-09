@@ -37,14 +37,14 @@
     }
   }
   .bg{
-    background-image: url(./assets/loginpageImage.png);
+    background-image: url(./assets/loginpage1.png);
     height: 790px;
     width: 100%;
-    
+    position: relative;
     background-size: cover;
     background-repeat: no-repeat;
     
-    
+    opacity: 1;
   }
 
  
