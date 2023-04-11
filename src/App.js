@@ -9,7 +9,7 @@ import ProtectedRoutes from './components/ProtectedRoutes';
 
 function App() {
   return (
-    <div className='App'>
+    <div className=''>
 
       <AuthContextProvider>
 
