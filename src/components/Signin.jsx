@@ -21,14 +21,7 @@ const Signin = () => {
     }
   }
 
-  const handleGoogleSignIn = async () => {
-    try {
-      await googleSignIn();
 
-    } catch (e) {
-      console.log(e);
-    }
-  }
   useEffect(() => {
     if (user != null) {
       navigate('/account');
@@ -56,7 +49,7 @@ const Signin = () => {
         <form onSubmit={handleSubmit}>
           <div className='text'>
             
-            <input onChange={(e) => emailValidation(e.target.value)} placeholder='Email id' type="email" required />
+            <input onChange={(e) => setEmail(e.target.value)} placeholder='Email id' type="email" required />
             
           </div>
           <div className='text'>

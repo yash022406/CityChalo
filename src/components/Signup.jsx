@@ -11,13 +11,7 @@ const Signup = () => {
   const {createUser} = UserAuth()
   const navigate = useNavigate()
 
-  const emailValidation = (val) => {
-    if(val.match(/[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])?/g)){
-      console.log("true");
-    }else{
-      console.log("false");
-    }
-  }
+ 
 
  
   const handleSubmit = async (e) => {
@@ -41,7 +35,7 @@ const Signup = () => {
       <form onSubmit={handleSubmit}>
         <div className='text'>
           
-          <input onChange={(e) => emailValidation(e.target.value)} placeholder='Email Id' type="email" required/>
+          <input onChange={(e) => setEmail(e.target.value)} placeholder='Email Id' type="email" required/>
         </div>
       
         <div className='text'>
