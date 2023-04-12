@@ -1,0 +1,109 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+  }
+  .body{
+    font-family: "open sans";
+    background-image: url(../assets/loginpageImage.png);
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      background-size: cover;
+      opacity: 1;
+      background-position: center center;
+      
+      
+  }
+  .bg{
+      
+    }
+  
+   
+   .cover{
+    /* background-color: white; */
+    
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%,50%);
+    background: linear-gradient(rgba(255, 255, 255, 0.95),#f7f6f6);
+    /* display: flex; */
+    /* flex-direction: column;
+    align-items: center;
+    justify-content: space-around; */
+    width: 35vw;
+    height: 50vh;
+    transform: translate(-50%,42%);
+    padding: 50px 30px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px rgba(150, 160, 111, 0.9);
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    padding: auto;
+  
+   }
+   .signincover{
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%,50%);
+    background: linear-gradient(rgba(255, 255, 255, 0.95),#f7f6f6);
+    /* display: flex; */
+    /* flex-direction: column;
+    align-items: center;
+    justify-content: space-around; */
+    width: 35vw;
+    height: 60vh;
+    transform: translate(-50%,35%);
+    padding: 50px 30px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px rgba(150, 160, 111, 0.9);
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    padding: auto;
+   }
+   h1{
+    text-transform: uppercase;
+    font-size: 2em;
+    margin-bottom: 1em;
+    text-align: center;
+   }
+   .text input{
+    padding: 5px;
+    width: 100%;
+    text-align: center;
+    text-decoration: black;
+    align-items: center;
+    margin-left: 10px;
+    margin-top: 20px;
+    border-radius: 3rem;
+    
+    display: block;
+   }
+   .si{
+    margin-top: 20px;
+    border-radius: 2em;
+    width: 40%;
+    align-items: center;
+    margin-left: 31%;
+    background-color: gainsboro;
+   }
+   .lol{
+    margin-top: 10%;
+    align-items: center;
+    text-align: center;
+   }
+   .hello{
+    margin-top: 16px;
+   }
+   .searchbusbutton{
+    color: white;
+    
+   }
+   .searchbusbutton:hover{
+    color: rgb(0, 0, 0);
+   }
+   

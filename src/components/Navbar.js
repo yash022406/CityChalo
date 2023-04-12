@@ -7,7 +7,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 
 import * as bootstrap from 'bootstrap'
 import Alert from 'bootstrap/js/dist/alert' 
-
+import './signin.css';
 const Navbar = () => {
 
     const {user,logout} = UserAuth();
@@ -23,15 +23,15 @@ const Navbar = () => {
     }
 
   return (
-    <nav className='flex justify-between bg-green-100 h-[90px] items-center w-full mx-auto px-10'>
+    <nav className='flex justify-between bg-green-100 h-[50px] items-center w-full mx-auto px-10'>
         {/* <div className='flex justify-between items-center w-[70%] px-10'> */}
-        <i className="fa-solid fa-bus fa-2xl"></i>
+        <i className="fa-solid fa-bus fa-xl"></i>
         
-          <p className='text-4xl font-semibold'>
+          <p className='hello text-2xl font-semibold items-center'>
             CityChalo
           </p>
           <div>
-            <button className='text-2xl border-[2px] border-green-800 rounded-md w-[120px] h-[54px] hover:bg-green-300 ease-in-out duration-500 ' onClick={handleLogout}>Logout</button>
+            <button className='text-xl border-[2px] border-green-800 rounded-md w-[80px] h-[36px] hover:bg-green-300 ease-in-out duration-500 ' onClick={handleLogout}>Logout</button>
           </div>
           {/* </div> */}
       </nav>

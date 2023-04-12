@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-
+import './signin.css';
 const SearchBus = ({ handleAddForm }) => {
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
@@ -73,7 +73,7 @@ const SearchBus = ({ handleAddForm }) => {
           {/* <Link to='/available_bus' > */}
           <Link to={`/available_bus?from=${from}&to=${to}`}>
             <button
-              className="border-[2px] border-green-800 font-semibold text-xl rounded-xl h-[50px] w-[150px] hover:bg-green-200"
+              className="border-[2px] border-green-800 font-semibold text-xl rounded-xl h-[50px] w-[150px] searchbusbutton"
               onClick={handleClick}
             >
               Search Buses
