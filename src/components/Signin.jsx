@@ -21,7 +21,14 @@ const Signin = () => {
     }
   }
 
+  const handleGoogleSignIn = async () => {
+    try {
+      await googleSignIn();
 
+    } catch (e) {
+      console.log(e);
+    }
+  }
   useEffect(() => {
     if (user != null) {
       navigate('/account');
