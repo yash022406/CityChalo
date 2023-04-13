@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import './signin.css';
 const SearchBus = ({ handleAddForm }) => {
   const [from, setFrom] = useState("");
@@ -26,13 +27,13 @@ const SearchBus = ({ handleAddForm }) => {
 
   return (
     <div className={`w-full`}>
-      <h1 className="text-[70px] text-green-900 pt-[90px] flex justify-center">
+      <h1 className="text-[40px] text-green-900 pt-[90px] flex justify-center">
         Book your Tickets ASAP!
       </h1>
-      <div className="w-full h-[140px] flex gap-10 justify-center mt-[150px] items-center">
-        <div className="">
+      <div className="w-full h-[140px] flex justify-center mt-[150px] items-center">
+        <div className=" border-[0.5px]">
           <select
-            className="h-[50px] w-[250px] font-semibold px-4 text-xl"
+            className="h-[50px] w-[250px] px-4 text-xl"
             type="text"
             placeholder="FROM"
             value={from}
@@ -45,9 +46,10 @@ const SearchBus = ({ handleAddForm }) => {
             <option value="Ajmeri Gate">Ajmeri Gate</option>
           </select>
         </div>
-        <div>
+        <div className=" border-[1px]">
+        {/* <div className="icon"><i class="fa-solid fa-location-dot" style="color: #298f5e;"></i></div> */}
           <select
-            className="h-[50px] w-[250px] font-semibold px-4 text-xl"
+            className="h-[50px] w-[250px] px-4 text-xl"
             type="text"
             placeholder="TO"
             value={to}
@@ -61,9 +63,9 @@ const SearchBus = ({ handleAddForm }) => {
           </select>
         </div>
 
-        <div>
+        <div className=" border-[1px]">
           <input
-            className="h-[50px] w-[250px] font-semibold px-4 text-xl outline-none"
+            className="h-[50px] w-[250px] px-4 text-xl outline-none"
             type="date"
             placeholder="DATE"
           />
@@ -73,7 +75,7 @@ const SearchBus = ({ handleAddForm }) => {
           {/* <Link to='/available_bus' > */}
           <Link to={`/available_bus?from=${from}&to=${to}`}>
             <button
-              className="border-[2px] border-green-800 font-semibold text-xl rounded-xl h-[50px] w-[150px] searchbusbutton"
+              className="border-[2px] border-green-800 mx-4 font-semibold text-xl rounded-xl h-[50px] w-[150px] searchbusbutton"
               onClick={handleClick}
             >
               Search Buses
