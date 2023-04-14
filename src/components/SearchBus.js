@@ -1,15 +1,38 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
-import './signin.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "./signin.css";
 const SearchBus = ({ handleAddForm }) => {
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
-  const handleChange1 = ({ target }) => {
+  const [places, setPlaces] = useState({
+    LNMIIT: [true, true],
+    "Narayan Singh Circle": [true, true],
+    "Raja Park": [true, true],
+    "Ajmeri Gate": [true, true],
+  });
+
+  const handleStartingDestChange = ({ target }) => {
     setFrom(target.value);
+
+    const newPlacesState = { ...places };
+
+    if (from !== "") {
+      newPlacesState[from][0] = true;
+    }
+
+    newPlacesState[target.value][0] = false;
+    setPlaces(newPlacesState);
   };
-  const handleChange2 = ({ target }) => {
+
+  const handleEndDestChange = ({ target }) => {
     setTo(target.value);
+    const newPlacesState = { ...places };
+    if (to !== "") {
+      newPlacesState[to][1] = true;
+    }
+    newPlacesState[target.value][1] = false;
+    setPlaces(newPlacesState);
   };
 
   const handleClick = () => {
@@ -22,9 +45,6 @@ const SearchBus = ({ handleAddForm }) => {
     setFrom("");
     setTo("");
   };
-  console.log("fiter", from);
-  console.log("asd", to);
-
   return (
     <div className={`w-full`}>
       <h1 className="text-[40px] text-green-900 pt-[90px] flex justify-center">
@@ -37,29 +57,39 @@ const SearchBus = ({ handleAddForm }) => {
             type="text"
             placeholder="FROM"
             value={from}
-            onChange={handleChange1}
+            onChange={handleStartingDestChange}
           >
-            <option value="none" selected hidden>FROM</option>
-            <option value="LNMIIT">LNMIIT</option>
-            <option value="Narayan Singh Circle">Narayan Singh Circle</option>
-            <option value="Raja Park">Raja Park</option>
-            <option value="Ajmeri Gate">Ajmeri Gate</option>
+            <option value="none" selected hidden>
+              FROM
+            </option>
+            {Object.keys(places).map((place) => {
+              return (
+                <option value={place} disabled={!places[place][0]}>
+                  {place}
+                </option>
+              );
+            })}
           </select>
         </div>
         <div className=" border-[1px]">
-        {/* <div className="icon"><i class="fa-solid fa-location-dot" style="color: #298f5e;"></i></div> */}
+          {/* <div className="icon"><i class="fa-solid fa-location-dot" style="color: #298f5e;"></i></div> */}
           <select
             className="h-[50px] w-[250px] px-4 text-xl"
             type="text"
             placeholder="TO"
             value={to}
-            onChange={handleChange2}
+            onChange={handleEndDestChange}
           >
-          <option value="none" selected hidden>TO</option>
-            <option value="Ajmeri Gate">Ajmeri Gate</option>
-            <option value="Narayan Singh Circle">Narayan Singh Circle</option>
-            <option value="Raja Park">Raja Park</option>
-            <option value="LNMIIT">LNMIIT</option>
+            <option value="none" selected hidden>
+              TO
+            </option>
+            {Object.keys(places).map((place) => {
+              return (
+                <option value={place} disabled={!places[place][1]}>
+                  {place}
+                </option>
+              );
+            })}
           </select>
         </div>
 
