@@ -4,8 +4,9 @@ import { firestore } from "../firebase";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { AuthContextProvider, UserAuth } from "../context/AuthContext";
 function BusCard({ data, timeTable }) {
+  const {user} = UserAuth();
   const buTimeTable = [
     // weekdays
     {
@@ -230,20 +231,31 @@ function BusCard({ data, timeTable }) {
   } else {
     day = "weekend";
   }
-
-  const handleFormSubmit = async (e, id) => {
+  
+  const handleFormSubmit = async (e, id, user) => {
     e.preventDefault();
     try {
+      console.log(user.displayName)
       // Store data in Firestore
       const docRef = await addDoc(collection(firestore, "bookings"), {
         data: buTimeTable[id],
         timestamp: serverTimestamp(),
+        name: user.displayName,
+        email: user.email, 
       });
       toast.success("Booked Successfully");
       console.log("Data stored successfully with ID:", docRef.id);
     } catch (error) {
       console.error("Error storing data:", error);
     }
+    // try{
+    //   redirect(`/account/${id}`)
+    //   console.log('navigated');
+
+    // }
+    // catch (error) {
+    //   console.error("Error storing data:", error);
+    // }
   };
 
   return (
@@ -276,7 +288,7 @@ function BusCard({ data, timeTable }) {
                 <div className="button">
                   <button
                     className="btn btn-primary"
-                    onClick={(e) => handleFormSubmit(e, id)}
+                    onClick={(e) => handleFormSubmit(e, id, user)}
                   >
                     Book Seats
                   </button>
