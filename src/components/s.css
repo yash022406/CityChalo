@@ -1,0 +1,17 @@
+.form{
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+
+    margin-top: 32.5vh;
+}
+
+.input{
+    border: 1px solid green;
+}
+.fontc{
+    color: green;
+}

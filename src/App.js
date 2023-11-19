@@ -5,7 +5,7 @@ import Account from './components/Account';
 import Signup from './components/Signup';
 import { AuthContextProvider } from './context/AuthContext';
 import ProtectedRoutes from './components/ProtectedRoutes';
-
+import Bus from './components/Bus';
 
 function App() {
   return (
@@ -18,15 +18,19 @@ function App() {
         <Route path='/' element={<Signin />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/account' element={
-        <ProtectedRoutes>
-
+          
+          <ProtectedRoutes>
           <Account /> 
-        </ProtectedRoutes>
-        }/>
+          </ProtectedRoutes>
+        }>
+          <Route path='/account/:key' element={ <Bus /> } />
+
+        </Route>
       </Routes>
       </BrowserRouter>
 
       </AuthContextProvider>
+
     </div>
   );
 }
